@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DKB Anchor Security Services Ltd.</title>
-    <link rel="icon" href="DKB Anchor Logo.png" type="image/x-icon">
+    <link rel="icon" href="DKB Anchor Logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -16,26 +16,26 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #001f3f;
-            color: #ffffff;
+            background-color: var(--deep-blue);
+            color: var(--white);
             overflow: hidden;
             height: 100vh;
         }
         .text-gold {
-            color: #FFD700;
+            color: var(--gold);
         }
-        .bg-deep-blue {
-            background-color: #001f3f;
+        .bg-normal-blue {
+            background-color: #007BFF;
         }
-        .bg-gold {
-            background-color: #FFD700;
+        .bg-light-blue {
+            background-color: #6CB2EB;
         }
         .border-gold {
-            border-color: #FFD700;
+            border-color: var(--gold);
         }
         .card {
-            background-color: #003366;
-            border: 1px solid #FFD700;
+            background-color: var(--accent-blue);
+            border: 1px solid var(--gold);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
         }
         .card:hover {
@@ -48,7 +48,7 @@
             overflow-y: auto;
         }
         .active-link {
-            border-bottom: 2px solid #FFD700;
+            border-bottom: 2px solid var(--gold);
         }
         .message-box {
             position: fixed;
@@ -71,11 +71,29 @@
             width: 8px;
         }
         .content-section::-webkit-scrollbar-track {
-            background: #001f3f;
+            background: var(--deep-blue);
         }
         .content-section::-webkit-scrollbar-thumb {
-            background: #FFD700;
+            background: var(--gold);
             border-radius: 4px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            border: 1px solid var(--gold);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 31, 63, 0.8);
+            padding: 1rem;
+            transition: bottom 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            bottom: 0;
         }
     </style>
 </head>
@@ -85,14 +103,15 @@
     <header class="bg-deep-blue shadow-2xl border-b border-gold/20">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-2">
-                <img src="DKB Anchor Logo.png" alt="DKB Anchor Security Logo" class="h-8 w-8">
+                <img src="DKB Anchor Logo.png" alt="DKB Anchor Security Logo" class="h-10 w-10">
                 <span class="text-2xl font-bold text-white">DKB Anchor <span class="text-gold">Security</span></span>
             </a>
             <nav class="hidden md:block">
                 <ul class="flex space-x-8 text-lg font-medium">
                     <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300 active-link" data-target="hero-section">Home</a></li>
-                    <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300" data-target="services-section">Services</a></li>
                     <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300" data-target="about-section">About Us</a></li>
+                    <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300" data-target="services-section">Services</a></li>
+                    <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300" data-target="gallery-section">Gallery</a></li>
                     <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300" data-target="contact-section">Contact</a></li>
                 </ul>
             </nav>
@@ -106,8 +125,9 @@
         <div id="mobile-menu" class="hidden md:hidden bg-accent-blue py-4 border-b border-gold/20">
             <ul class="flex flex-col items-center space-y-4 text-lg">
                 <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="hero-section">Home</a></li>
-                <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="services-section">Services</a></li>
                 <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="about-section">About Us</a></li>
+                <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="services-section">Services</a></li>
+                <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="gallery-section">Gallery</a></li>
                 <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="contact-section">Contact</a></li>
             </ul>
         </div>
@@ -139,46 +159,6 @@
                         <svg class="w-6 h-6 mr-2 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.411.001 12.045a11.871 11.871 0 001.592 5.95L0 24l6.155-1.615a11.802 11.802 0 005.89 1.57h.006c6.638 0 12.048-5.411 12.051-12.046a11.824 11.824 0 00-3.417-8.412z"/></svg>
                         WhatsApp Us
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services-section" class="content-section py-20 md:py-28 bg-deep-blue">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">Our <span class="text-gold">Services</span></h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <div class="card p-8 rounded-lg text-center shadow-lg">
-                        <img src="Personal.PNG" alt="Manned Guarding" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Manned Guarding</h3>
-                        <p class="text-white/80">Professional security personnel for on-site protection, patrols, and access control.</p>
-                    </div>
-                    <div class="card p-8 rounded-lg text-center shadow-lg">
-                        <img src="Surveillance.PNG" alt="CCTV Systems" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">CCTV Systems</h3>
-                        <p class="text-white/80">State-of-the-art surveillance systems for 24/7 monitoring and remote access.</p>
-                    </div>
-                    <div class="card p-8 rounded-lg text-center shadow-lg">
-                        <img src="Corporate.PNG" alt="Alarm Monitoring" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Alarm Monitoring</h3>
-                        <p class="text-white/80">Quick response alarm systems for immediate threat detection and notification.</p>
-                    </div>
-                    <div class="card p-8 rounded-lg text-center shadow-lg">
-                        <img src="Installation.PNG" alt="CCTV Camera Installation" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">CCTV Camera Installation</h3>
-                        <p class="text-white/80">Professional installation of high-definition CCTV systems for optimal surveillance.</p>
-                    </div>
-                    <div class="card p-8 rounded-lg text-center shadow-lg border-2 border-gold">
-                        <img src="Risk.PNG" alt="Risk Assessment" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Risk Assessment</h3>
-                        <p class="text-white/80">Comprehensive security analysis to identify vulnerabilities and mitigate potential threats.</p>
-                    </div>
-                     <!-- New Service 6: Electric Fencing -->
-                    <div class="card p-8 rounded-lg text-center shadow-lg border-2 border-gold">
-                        <img src="Fence.PNG" alt="Electric Fencing" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Electric Fencing</h3>
-                        <p class="text-white/80">High-tension perimeter security systems with automated triggers and alarm integration.</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -217,55 +197,243 @@
                     <h3 class="text-4xl font-bold text-center text-deep-blue mb-12">Meet Our <span class="text-gold">Board of Directors</span></h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                         <!-- David Kwame Blessings -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
                             <img src="David.png" alt="David Kwame Blessings" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
-                            <h4 class="text-xl font-semibold text-white mb-1">David Kwame Blessings</h4>
+                            <h4 class="text-xl font-semibold mb-1">David Kwame Blessings</h4>
                             <p class="text-sm text-gold">Chairman & CEO</p>
                             <p class="text-white/70 text-xs mt-2 italic">Visionary leader anchoring our strategy for growth and excellence.</p>
                         </div>
+                        <!-- Foster Komladza -->
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
+                            <img src="https://placehold.co/150x150/003366/FFD700?text=Foster" alt="Foster Komladza" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
+                            <h4 class="text-xl font-semibold mb-1">Foster Komladza</h4>
+                            <p class="text-sm text-gold">Operations Director</p>
+                            <p class="text-white/70 text-xs mt-2 italic">Managing tactical security deployments and field ops.</p>
+                        </div>
                         <!-- Solace Tublu -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
                             <img src="https://placehold.co/150x150/003366/FFD700?text=Solace" alt="Solace Tublu" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
-                            <h4 class="text-xl font-semibold text-white mb-1">Solace Tublu</h4>
+                            <h4 class="text-xl font-semibold mb-1">Solace Tublu</h4>
                             <p class="text-sm text-gold">Intelligence Officer</p>
                             <p class="text-white/70 text-xs mt-2 italic">Expert in security intelligence and threat analysis.</p>
                         </div>
+                        <!-- Bernice Afrima Nimarko -->
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
+                            <img src="https://placehold.co/150x150/003366/FFD700?text=Bernice" alt="Bernice Afrima Nimarko" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
+                            <h4 class="text-xl font-semibold mb-1">Bernice Afrima Nimarko</h4>
+                            <p class="text-sm text-gold">Secretary</p>
+                            <p class="text-white/70 text-xs mt-2 italic">Managing corporate governance and executive communications.</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto mt-8">
                         <!-- Evelyn Awash -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
                             <img src="Evelyn.jpeg" alt="Evelyn Awash" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
-                            <h4 class="text-xl font-semibold text-white mb-1">Evelyn Awash</h4>
+                            <h4 class="text-xl font-semibold mb-1">Evelyn Awash</h4>
                             <p class="text-sm text-gold">Marketing Manager</p>
                             <p class="text-white/70 text-xs mt-2 italic">Driving growth through strategic marketing and brand development.</p>
                         </div>
                         <!-- Rejoice Mawunyo Tublu -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
                             <img src="Rejoice.jpeg" alt="Rejoice Mawunyo Tublu" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
-                            <h4 class="text-xl font-semibold text-white mb-1">Rejoice Mawunyo Tublu</h4>
+                            <h4 class="text-xl font-semibold mb-1">Rejoice Mawunyo Tublu</h4>
                             <p class="text-sm text-gold">Human Resource Manager</p>
                             <p class="text-white/70 text-xs mt-2 italic">Overseeing personnel development and employee welfare.</p>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mt-8">
-                        <!-- Foster Komladza -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
-                            <img src="https://placehold.co/150x150/003366/FFD700?text=Foster" alt="Foster Komladza" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
-                            <h4 class="text-xl font-semibold text-white mb-1">Foster Komladza</h4>
-                            <p class="text-sm text-gold">Operations Director</p>
-                            <p class="text-white/70 text-xs mt-2 italic">Managing tactical security deployments and field ops.</p>
-                        </div>
                         <!-- Faustina Papunaa -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
                             <img src="https://placehold.co/150x150/003366/FFD700?text=Faustina" alt="Faustina Papunaa" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
-                            <h4 class="text-xl font-semibold text-white mb-1">Faustina Papunaa</h4>
+                            <h4 class="text-xl font-semibold mb-1">Faustina Papunaa</h4>
                             <p class="text-sm text-gold">Safety Manager</p>
                             <p class="text-white/70 text-xs mt-2 italic">Implementing safety standards for an accident-free environment.</p>
                         </div>
-                         <!-- Bernice Afrima Nimarko -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
-                            <img src="Bernice.jpeg" alt="Bernice Afrima Nimarko" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
-                            <h4 class="text-xl font-semibold text-white mb-1">Bernice Afrima Nimarko</h4>
-                            <p class="text-sm text-gold">Secretary</p>
-                            <p class="text-white/70 text-xs mt-2 italic">Managing corporate governance and executive records.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services-section" class="content-section py-20 md:py-28 bg-deep-blue">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">Our <span class="text-gold">Services</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="card p-8 rounded-lg text-center shadow-lg">
+                        <img src="Personal.PNG" alt="Manned Guarding" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Manned Guarding</h3>
+                        <p class="text-white/80">Professional security personnel for on-site protection, patrols, and access control.</p>
+                    </div>
+                    <div class="card p-8 rounded-lg text-center shadow-lg">
+                        <img src="Surveillance.PNG" alt="CCTV Systems" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold text-white mb-2">CCTV Systems</h3>
+                        <p class="text-white/80">State-of-the-art surveillance systems for 24/7 monitoring and remote access.</p>
+                    </div>
+                    <div class="card p-8 rounded-lg text-center shadow-lg">
+                        <img src="Corporate.PNG" alt="Alarm Monitoring" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Alarm Monitoring</h3>
+                        <p class="text-white/80">Quick response alarm systems for immediate threat detection and notification.</p>
+                    </div>
+                    <div class="card p-8 rounded-lg text-center shadow-lg">
+                        <img src="Installation.PNG" alt="CCTV Camera Installation" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold text-white mb-2">CCTV Camera Installation</h3>
+                        <p class="text-white/80">Professional installation of high-definition CCTV systems for optimal surveillance.</p>
+                    </div>
+                    <div class="card p-8 rounded-lg text-center shadow-lg">
+                        <img src="Risk.PNG" alt="Risk Assessment" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Risk Assessment</h3>
+                        <p class="text-white/80">Comprehensive security analysis to identify vulnerabilities and mitigate potential threats.</p>
+                    </div>
+                    <div class="card p-8 rounded-lg text-center shadow-lg border-2 border-gold">
+                        <img src="Fence.PNG" alt="Electric Fencing" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Electric Fencing</h3>
+                        <p class="text-white/80">High-tension perimeter security systems with automated triggers and alarm integration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery-section" class="content-section py-20 md:py-28 bg-accent-blue">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">Operations <span class="text-gold">Gallery</span></h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Guard+Patrol" alt="Security Patrol" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Night Patrols</h4>
+                            <p class="text-white text-xs">Vigilant monitoring in any condition.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=CCTV+Hub" alt="Control Center" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">24/7 Control Center</h4>
+                            <p class="text-white text-xs">Advanced monitoring technologies.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Fence+Install" alt="Fence Installation" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Electric Fencing</h4>
+                            <p class="text-white text-xs">Professional perimeter security setup.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=VIP+Escort" alt="VIP Escort" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Executive Protection</h4>
+                            <p class="text-white text-xs">Dignitary and VIP escort services.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=K9+Unit" alt="K9 Security" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">K9 Units</h4>
+                            <p class="text-white text-xs">Trained dogs for enhanced detection.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Event+Security" alt="Event Security" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Event Management</h4>
+                            <p class="text-white text-xs">Crowd control and security for events.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Cash+In+Transit" alt="CIT Services" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">CIT Operations</h4>
+                            <p class="text-white text-xs">Secure valuables transportation.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Team+Training" alt="Training" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Personnel Training</h4>
+                            <p class="text-white text-xs">Continuous skill development.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Access+Systems" alt="Access Systems" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Access Systems</h4>
+                            <p class="text-white text-xs">Biometric and keycard integrations.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Industrial+Sec" alt="Industrial" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Industrial Security</h4>
+                            <p class="text-white text-xs">Protection for large scale facilities.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Residential+Sec" alt="Residential" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Residential Patrol</h4>
+                            <p class="text-white text-xs">Ensuring safety for gated communities.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Mobile+Response" alt="Response" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Mobile Response</h4>
+                            <p class="text-white text-xs">Rapid deployment units.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Consulting" alt="Consulting" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Risk Consulting</h4>
+                            <p class="text-white text-xs">Strategic security planning.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Undercover" alt="Undercover" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Undercover Ops</h4>
+                            <p class="text-white text-xs">Discreet investigative services.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Retail+Loss" alt="Retail" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Loss Prevention</h4>
+                            <p class="text-white text-xs">Retail security and inventory protection.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Maritime+Sec" alt="Maritime" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Maritime Security</h4>
+                            <p class="text-white text-xs">Port and offshore protection.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Aviation+Sec" alt="Aviation" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Aviation Security</h4>
+                            <p class="text-white text-xs">Airport and cargo safety.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Logistics" alt="Logistics" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Logistics Escort</h4>
+                            <p class="text-white text-xs">Supply chain security management.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Asset+Tracking" alt="Tracking" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Asset Tracking</h4>
+                            <p class="text-white text-xs">Real-time monitoring of valuables.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Emergency" alt="Emergency" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay">
+                            <h4 class="text-gold font-bold">Emergency Response</h4>
+                            <p class="text-white text-xs">Immediate tactical intervention.</p>
                         </div>
                     </div>
                 </div>
@@ -411,11 +579,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
