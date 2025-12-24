@@ -494,93 +494,7 @@
             </div>
         </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-deep-blue border-t border-gold/20 py-6 text-center">
-        <p class="text-white/70">&copy; 2024 <span class="text-gold font-bold">DKB Anchor Security Services Ltd.</span> All rights reserved.</p>
-        <div class="mt-2 text-sm text-gold/80 font-mono" id="current-time"></div>
-    </footer>
-
-    <script>
-        const menuButton = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
-        const contentSections = document.querySelectorAll('.content-section');
-        
-        function showSection(targetId) {
-            contentSections.forEach(section => {
-                section.style.display = 'none';
-            });
-            const target = document.getElementById(targetId);
-            if(target) target.style.display = 'block';
-
-            navLinks.forEach(link => {
-                link.classList.remove('active-link');
-                if (link.dataset.target === targetId) {
-                    link.classList.add('active-link');
-                }
-            });
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-        }
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                const target = link.dataset.target;
-                if (target) {
-                    showSection(target);
-                }
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            showSection('hero-section');
-        });
-
-        function updateTime() {
-            const now = new Date();
-            const timeElement = document.getElementById('current-time');
-            const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            timeElement.textContent = now.toLocaleString('en-US', options);
-        }
-
-        updateTime();
-        setInterval(updateTime, 1000);
-
-        function displayMessage(message, type = 'error') {
-            const messageBox = document.getElementById('message-box');
-            messageBox.textContent = message;
-            messageBox.className = `message-box ${type === 'error' ? 'bg-red-600' : 'bg-green-600'} text-white rounded-lg p-4 shadow-lg show`;
-            setTimeout(() => {
-                messageBox.classList.remove('show');
-            }, 3000);
-        }
-
-        document.getElementById('send-email-btn').addEventListener('click', () => {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            if (!name || !email || !message) {
-                displayMessage('Please complete all form fields.');
-                return;
-            }
-
-            const subject = encodeURIComponent('Security Inquiry - DKB Anchor');
-            const body = encodeURIComponent(
-                `Client Name: ${name}\nClient Email: ${email}\n\nMessage:\n${message}`
-            );
-
-            window.location.href = `mailto:info@dkbanchorsecurity.com?subject=${subject}&body=${body}`;
-        });
-        
+   
     <!-- Professional Footer -->
     <footer class="bg-deep-blue border-t border-gold/20 pt-16 pb-8 mt-auto">
         <div class="container mx-auto px-6">
@@ -743,6 +657,7 @@
     </script>
 </body>
 </html>
+
 
 
 
