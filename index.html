@@ -580,9 +580,170 @@
 
             window.location.href = `mailto:info@dkbanchorsecurity.com?subject=${subject}&body=${body}`;
         });
+        
+    <!-- Professional Footer -->
+    <footer class="bg-deep-blue border-t border-gold/20 pt-16 pb-8 mt-auto">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Branding -->
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://placehold.co/50x50/001f3f/FFD700?text=Logo" alt="Logo" class="h-12 w-12">
+                        <span class="text-2xl font-bold text-white">DKB Anchor <span class="text-gold">Security</span></span>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed">
+                        Leading the security industry with cutting-edge technology and human vigilance. We anchor your safety through our core values.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="social-btn cursor-pointer">FB</div>
+                        <div class="social-btn cursor-pointer">LN</div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-8 uppercase tracking-widest border-l-4 border-gold pl-3">Navigation</h4>
+                    <ul class="space-y-4 text-white/70 text-sm">
+                        <li><a href="#" class="hover:text-gold transition-colors block" onclick="showSection('hero-section')">Home</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors block" onclick="showSection('about-section')">About Our Firm</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors block" onclick="showSection('services-section')">Security Services</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors block" onclick="showSection('gallery-section')">Operations Gallery</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors block" onclick="showSection('contact-section')">Request Quote</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-8 uppercase tracking-widest border-l-4 border-gold pl-3">Contact</h4>
+                    <ul class="space-y-5 text-white/70 text-sm">
+                        <li class="flex items-start space-x-3">
+                            <span class="text-gold mt-1">📧</span>
+                            <a href="mailto:info@dkbanchorsecurity.com" class="hover:text-gold transition-colors">info@dkbanchorsecurity.com</a>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="text-gold mt-1">📞</span>
+                            <div class="space-y-1">
+                                <a href="tel:+233557150062" class="hover:text-gold transition-colors block">+233 55 715 0062</a>
+                                <a href="tel:+233207816778" class="hover:text-gold transition-colors block">+233 20 781 6778</a>
+                            </div>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-green-500 font-bold">●</span>
+                            <a href="https://wa.me/233557150062" class="text-green-500 hover:underline">WhatsApp Active Now</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Address -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-8 uppercase tracking-widest border-l-4 border-gold pl-3">Location</h4>
+                    <ul class="space-y-4 text-white/70 text-sm">
+                        <li class="flex items-start space-x-3 leading-relaxed">
+                            <span class="text-gold">📍</span>
+                            <span>Main Office, Security Plaza,<br>Accra, Ghana</span>
+                        </li>
+                        <li class="pt-4">
+                            <p class="text-[10px] text-white/40 uppercase font-bold tracking-widest italic">
+                                Integrity • Excellence • Reliability
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
+                <p class="text-white/40 text-xs">
+                    &copy; 2024 <span class="text-gold font-bold">DKB Anchor Security Services Ltd.</span> Registered in Ghana.
+                </p>
+                <div id="current-time-footer" class="text-gold/60 font-mono text-[10px] uppercase tracking-tighter"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+        const contentSections = document.querySelectorAll('.content-section');
+        
+        function showSection(targetId) {
+            contentSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            const target = document.getElementById(targetId);
+            if(target) target.style.display = 'block';
+
+            navLinks.forEach(link => {
+                link.classList.remove('active-link');
+                if (link.dataset.target === targetId) {
+                    link.classList.add('active-link');
+                }
+            });
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+            // Always scroll to top when switching sections
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const target = link.dataset.target;
+                if (target) {
+                    showSection(target);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('hero-section');
+        });
+
+        function updateTime() {
+            const now = new Date();
+            const timeElement = document.getElementById('current-time-footer');
+            const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            if(timeElement) timeElement.textContent = now.toLocaleString('en-US', options);
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        function displayMessage(message, type = 'error') {
+            const messageBox = document.getElementById('message-box');
+            messageBox.textContent = message;
+            messageBox.className = `message-box ${type === 'error' ? 'bg-red-600' : 'bg-green-600'} text-white rounded-lg p-4 shadow-lg show`;
+            setTimeout(() => {
+                messageBox.classList.remove('show');
+            }, 3000);
+        }
+
+        document.getElementById('send-email-btn').addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !message) {
+                displayMessage('Please complete all form fields.');
+                return;
+            }
+
+            const subject = encodeURIComponent('Security Inquiry - DKB Anchor');
+            const body = encodeURIComponent(`Client Name: ${name}\nClient Email: ${email}\n\nMessage:\n${message}`);
+
+            window.location.href = `mailto:info@dkbanchorsecurity.com?subject=${subject}&body=${body}`;
+        });
     </script>
 </body>
 </html>
+
 
 
 
