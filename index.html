@@ -3,8 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Primary Meta Tags -->
     <title>DKB Anchor Security Services Ltd. | Integrity, Excellence, Reliability</title>
-    <link rel="icon" href="DKB Anchor Logo.png">
+    <meta name="title" content="DKB Anchor Security Services Ltd. | Leading Security Firm in Ghana">
+    <meta name="description" content="DKB Anchor Security Services Ltd. provides premium manned guarding, CCTV monitoring, electric fencing, and risk assessment services in Accra, Ghana. Anchored in Integrity and Excellence.">
+    <meta name="keywords" content="Security services Ghana, manned guarding Accra, CCTV installation Ghana, electric fencing services, private security company Accra, DKB Anchor Security">
+    <meta name="author" content="DKB Anchor Security Services Ltd.">
+    <link rel="canonical" href="https://dkbanchorsecurity.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dkbanchorsecurity.com/">
+    <meta property="og:title" content="DKB Anchor Security Services Ltd. | Integrity, Excellence, Reliability">
+    <meta property="og:description" content="Professional security solutions tailored for homes and businesses in Ghana. Leading the industry with technology and vigilance.">
+    <meta property="og:image" content="https://placehold.co/1200x630/001f3f/FFD700?text=DKB+Anchor+Security">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dkbanchorsecurity.com/">
+    <meta property="twitter:title" content="DKB Anchor Security Services Ltd. | Security Experts">
+    <meta property="twitter:description" content="Premium security services including Manned Guarding, CCTV, and Electric Fencing in Ghana.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/001f3f/FFD700?text=DKB+Anchor+Security">
+
+    <!-- JSON-LD Schema Markup (Structured Data) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SecurityService",
+      "name": "DKB Anchor Security Services Ltd.",
+      "alternateName": "DKB Anchor Security",
+      "url": "https://dkbanchorsecurity.com/",
+      "logo": "https://placehold.co/200x200/001f3f/FFD700?text=Logo",
+      "description": "Leading security provider in Ghana offering manned guarding, CCTV systems, and electric fencing.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Main Office, Security Plaza",
+        "addressLocality": "Accra",
+        "addressCountry": "GH"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+233-55-715-0062",
+        "contactType": "customer service",
+        "email": "info@dkbanchorsecurity.com"
+      },
+      "sameAs": [
+        "https://facebook.com/dkbanchor",
+        "https://instagram.com/dkbanchor",
+        "https://linkedin.com/company/dkbanchor"
+      ]
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="DKB Anchor Logo.png" type="image/x-icon">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -18,17 +72,12 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--deep-blue);
             color: var(--white);
-            overflow: hidden;
-            height: 100vh;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         .text-gold {
             color: var(--gold);
-        }
-        .bg-normal-blue {
-            background-color: #007BFF;
-        }
-        .bg-light-blue {
-            background-color: #6CB2EB;
         }
         .border-gold {
             border-color: var(--gold);
@@ -44,8 +93,7 @@
         }
         .content-section {
             display: none;
-            height: calc(100vh - 120px);
-            overflow-y: auto;
+            flex: 1;
         }
         .active-link {
             border-bottom: 2px solid var(--gold);
@@ -66,101 +114,98 @@
             opacity: 1;
             visibility: visible;
         }
-        /* Custom scrollbar for deep blue theme */
-        .content-section::-webkit-scrollbar {
+        .slogan-tracking {
+            letter-spacing: 0.25em;
+        }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.375rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #FFD700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        .social-btn:hover {
+            background-color: #FFD700;
+            color: #001f3f;
+            border-color: #FFD700;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
             width: 8px;
         }
-        .content-section::-webkit-scrollbar-track {
+        ::-webkit-scrollbar-track {
             background: var(--deep-blue);
         }
-        .content-section::-webkit-scrollbar-thumb {
+        ::-webkit-scrollbar-thumb {
             background: var(--gold);
             border-radius: 4px;
-        }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            border: 1px solid var(--gold);
-        }
-        .gallery-overlay {
-            position: absolute;
-            bottom: -100%;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 31, 63, 0.8);
-            padding: 1rem;
-            transition: bottom 0.3s ease;
-        }
-        .gallery-item:hover .gallery-overlay {
-            bottom: 0;
         }
     </style>
 </head>
 <body class="bg-deep-blue">
 
-     <!-- Header -->
-    <header class="bg-deep-blue shadow-2xl border-b border-gold/20">
+    <!-- Header -->
+    <header class="bg-deep-blue shadow-2xl border-b border-gold/20 sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-3 group">
-                <img src="DKB Anchor Logo.png" alt="DKB Anchor Security Logo" class="h-10 w-10">
-                <div class="flex flex-col">
+            <a href="#" class="flex items-center space-x-3 group" onclick="showSection('hero-section')">
+                <img src="DKB Anchor Logo.png" alt="DKB Anchor Security Official Logo" class="h-10 w-auto">
+                <div class="flex flex-col text-left">
                     <span class="text-xl md:text-2xl font-bold text-white leading-tight">DKB Anchor <span class="text-gold">Security</span></span>
                     <span class="text-[8px] md:text-[10px] uppercase slogan-tracking text-gold font-bold">Integrity, Excellence, Reliability</span>
                 </div>
             </a>
-            <nav class="hidden md:block">
+            <nav class="hidden lg:block">
                 <ul class="flex space-x-8 text-lg font-medium">
                     <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300 active-link" data-target="hero-section">Home</a></li>
                     <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300" data-target="about-section">About Us</a></li>
                     <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300" data-target="services-section">Services</a></li>
-                    <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300" data-target="gallery-section">Gallery</a></li>
                     <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-300" data-target="contact-section">Contact</a></li>
                 </ul>
             </nav>
-            <button id="menu-button" class="md:hidden text-white focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button id="menu-button" class="lg:hidden text-white focus:outline-none" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-accent-blue py-4 border-b border-gold/20">
+        <div id="mobile-menu" class="hidden lg:hidden bg-accent-blue py-4 border-b border-gold/20">
             <ul class="flex flex-col items-center space-y-4 text-lg">
                 <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="hero-section">Home</a></li>
                 <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="about-section">About Us</a></li>
                 <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="services-section">Services</a></li>
-                <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="gallery-section">Gallery</a></li>
                 <li><a href="#" class="mobile-link block text-white hover:text-gold transition-colors duration-300 py-2" data-target="contact-section">Contact</a></li>
             </ul>
         </div>
     </header>
 
-    <main class="h-full">
+    <main class="flex-grow">
         <!-- Hero Section -->
-        <section id="hero-section" class="content-section relative py-20 md:py-28 flex flex-col items-center justify-center block" style="background: linear-gradient(135deg, #001f3f 0%, #003366 100%);">
+        <section id="hero-section" class="content-section relative py-20 md:py-32 flex flex-col items-center justify-center block" style="background: linear-gradient(135deg, #001f3f 0%, #003366 100%);">
             <div class="container mx-auto px-6 text-center relative z-10">
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-4">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-6">
                     Protecting What <span class="text-gold">Matters</span> Most
                 </h1>
-                <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-                    Trusted security solutions for your home and business, anchored in excellence.
+                <p class="text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto italic">
+                    Customized security solutions anchored in our core values.
                 </p>
                 <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-                    <div class="relative group w-full md:w-1/3">
-                        <img src="Access.PNG" alt="Access Control" class="w-full rounded-lg shadow-xl border border-gold/30">
-                    </div>
-                    <div class="relative group w-full md:w-1/3">
-                        <img src="cctv.PNG" alt="24/7 Monitoring" class="w-full rounded-lg shadow-xl border border-gold/30">
-                    </div>
-                    <div class="relative group w-full md:w-1/3">
-                        <img src="security.PNG" alt="Trained Guards" class="w-full rounded-lg shadow-xl border border-gold/30">
-                    </div>
+                    <div class="w-full md:w-1/3"><img src="Access.PNG" alt="Professional Security Personnel" class="w-full rounded-lg shadow-xl border border-gold/30"></div>
+                    <div class="w-full md:w-1/3"><img src="cctv.PNG" alt="Advanced CCTV Monitoring Center" class="w-full rounded-lg shadow-xl border border-gold/30"></div>
+                    <div class="w-full md:w-1/3"><img src="security.PNG" alt="High Tension Electric Fence Installation" class="w-full rounded-lg shadow-xl border border-gold/30"></div>
                 </div>
                 <div class="mt-12">
                     <a href="https://wa.me/233557150062" class="inline-flex items-center justify-center bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:bg-green-500 hover:scale-105 shadow-xl">
-                        <svg class="w-6 h-6 mr-2 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.411.001 12.045a11.871 11.871 0 001.592 5.95L0 24l6.155-1.615a11.802 11.802 0 005.89 1.57h.006c6.638 0 12.048-5.411 12.051-12.046a11.824 11.824 0 00-3.417-8.412z"/></svg>
-                        WhatsApp Us
+                        WhatsApp Us for Quotes
                     </a>
                 </div>
             </div>
@@ -169,85 +214,83 @@
         <!-- About Us Section -->
         <section id="about-section" class="content-section py-20 md:py-28 bg-white text-gray-900">
             <div class="container mx-auto px-6">
-                <div class="flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-12">
+                <div class="flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-12 text-center lg:text-left">
                     <div class="lg:w-1/2">
-                        <img src="Office.png" alt="About Us" class="rounded-lg shadow-2xl border-4 border-gold">
+                        <div class="rounded-lg shadow-2xl border-4 border-gold bg-deep-blue p-12 flex flex-col items-center justify-center min-h-[300px]">
+                            <img src="Office.png" alt="DKB Anchor Security Brand Logo" class="h-32 w-auto">
+                            <span class="mt-6 text-2xl font-bold text-white uppercase tracking-widest slogan-tracking">DKB ANCHOR</span>
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-deep-blue font-bold text-sm tracking-widest uppercase italic border-b border-gold pb-1">Integrity • Excellence • Reliability</span>
+                        </div>
                     </div>
                     <div class="lg:w-1/2">
-                        <h2 class="text-4xl md:text-5xl font-bold text-deep-blue mb-6 underline decoration-gold decoration-4 underline-offset-8">About Our Company</h2>
+                        <h2 class="text-4xl md:text-5xl font-bold text-deep-blue mb-6 underline decoration-gold decoration-4 underline-offset-8">About Our Security Firm</h2>
                         <p class="text-lg leading-relaxed mb-6">
-                            <strong>DKB Anchor Security Services Ltd.</strong> is a leading provider of comprehensive security solutions. With years of experience and a commitment to excellence, we offer tailored services to meet the unique needs of our clients. Our team of highly trained professionals is dedicated to ensuring your safety and peace of mind.
+                            <strong>DKB Anchor Security Services Ltd.</strong> is a leading provider of comprehensive security solutions in Ghana. With years of experience and a commitment to excellence, we offer tailored services to meet the unique needs of residential and commercial clients.
                         </p>
                         <p class="text-lg leading-relaxed">
-                            We believe that security is more than just a service; it's a partnership built on trust and reliability. We use the latest technology and proven strategies to deliver superior protection for homes, businesses, and special events.
+                            We use the latest technology and proven tactical strategies to deliver superior protection for homes, businesses, and high-profile events.
                         </p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
-                    <div class="bg-gray-50 p-8 rounded-xl border-l-8 border-gold shadow-md">
+                    <div class="bg-gray-50 p-8 rounded-xl border-l-8 border-gold shadow-md text-center">
                         <h3 class="text-2xl font-bold text-deep-blue mb-4">Our Mission</h3>
-                        <p class="text-gray-700">To provide innovative and effective security solutions that protect people, property, and assets, fostering a safer community for everyone through vigilance and technology.</p>
+                        <p class="text-gray-700 italic">To provide innovative and effective security solutions that protect people, property, and assets through unwavering integrity and technological excellence.</p>
                     </div>
-                    <div class="bg-gray-50 p-8 rounded-xl border-l-8 border-gold shadow-md">
+                    <div class="bg-gray-50 p-8 rounded-xl border-l-8 border-gold shadow-md text-center">
                         <h3 class="text-2xl font-bold text-deep-blue mb-4">Our Vision</h3>
-                        <p class="text-gray-700">To be the most trusted and respected security services provider globally, recognized for our professionalism, integrity, and unwavering commitment to client satisfaction.</p>
+                        <p class="text-gray-700 italic">To be the most respected security provider globally, recognized for anchoring client safety with reliable, high-performance guarding and surveillance.</p>
                     </div>
                 </div>
 
-                <!-- Board of Directors -->
                 <div class="py-20 mt-10">
                     <h3 class="text-4xl font-bold text-center text-deep-blue mb-12">Meet Our <span class="text-gold">Board of Directors</span></h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-                        <!-- David Kwame Blessings -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
-                            <img src="David.png" alt="David Kwame Blessings" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto text-white">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                            <img src="David.png" alt="David Kwame Blessings - CEO" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
                             <h4 class="text-xl font-semibold mb-1">David Kwame Blessings</h4>
-                            <p class="text-sm text-gold">Chairman & CEO</p>
+                            <p class="text-sm text-gold font-bold">Chairman & CEO</p>
                             <p class="text-white/70 text-xs mt-2 italic">Visionary leader anchoring our strategy for growth and excellence.</p>
                         </div>
-                        <!-- Foster Komladza -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
-                            <img src="Foster.jpeg" alt="Foster Komladza" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
-                            <h4 class="text-xl font-semibold mb-1">W.O.1 Foster Komladza</h4>
-                            <p class="text-sm text-gold">Operations Director</p>
-                            <p class="text-white/70 text-xs mt-2 italic">Managing tactical security deployments and field ops.</p>
-                        </div>
-                        <!-- Solace Tublu -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
-                            <img src="Solace.jpeg" alt="Solace Tublu" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                            <img src="Solace.jpeg" alt="Solace Tublu - Intelligence Officer" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
                             <h4 class="text-xl font-semibold mb-1">Solace Tublu</h4>
-                            <p class="text-sm text-gold">Intelligence Officer</p>
+                            <p class="text-sm text-gold font-bold">Intelligence Officer</p>
                             <p class="text-white/70 text-xs mt-2 italic">Expert in security intelligence and threat analysis.</p>
                         </div>
-                        <!-- Bernice Afrima Nimarko -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
-                            <img src="Bernice.jpeg" alt="Bernice Afrima Nimarko" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                            <img src="Bernice.jpeg" alt="Bernice Nimarko - Secretary" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
                             <h4 class="text-xl font-semibold mb-1">Bernice Afrima Nimarko</h4>
-                            <p class="text-sm text-gold">Secretary</p>
+                            <p class="text-sm text-gold font-bold">Secretary</p>
                             <p class="text-white/70 text-xs mt-2 italic">Managing corporate governance and executive communications.</p>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto mt-8">
-                        <!-- Evelyn Awash -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
-                            <img src="Evelyn.jpeg" alt="Evelyn Awash" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                            <img src="Evelyn.jpeg" alt="Evelyn Awash - Marketing Manager" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
                             <h4 class="text-xl font-semibold mb-1">Evelyn Awash</h4>
-                            <p class="text-sm text-gold">Marketing Manager</p>
+                            <p class="text-sm text-gold font-bold">Marketing Manager</p>
                             <p class="text-white/70 text-xs mt-2 italic">Driving growth through strategic marketing and brand development.</p>
                         </div>
-                        <!-- Rejoice Mawunyo Tublu -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
-                            <img src="Rejoice.jpeg" alt="Rejoice Mawunyo Tublu" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto mt-8 text-white">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                            <img src="Rejoice.jpeg" alt="Rejoice Tublu - HR Manager" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
                             <h4 class="text-xl font-semibold mb-1">Rejoice Mawunyo Tublu</h4>
-                            <p class="text-sm text-gold">Human Resource Manager</p>
+                            <p class="text-sm text-gold font-bold">Human Resource Manager</p>
                             <p class="text-white/70 text-xs mt-2 italic">Overseeing personnel development and employee welfare.</p>
                         </div>
-                        <!-- Faustina Papunaa -->
-                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold text-white">
-                            <img src="Faustina.jpeg" alt="Faustina Papunaa" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                            <img src="Foster.jpeg" alt="Foster Komladza - Operations Director" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
+                            <h4 class="text-xl font-semibold mb-1">Foster Komladza</h4>
+                            <p class="text-sm text-gold font-bold">Operations Director</p>
+                            <p class="text-white/70 text-xs mt-2 italic">Managing tactical security deployments and field ops.</p>
+                        </div>
+                        <div class="card bg-deep-blue p-6 rounded-lg text-center shadow-lg border-gold">
+                            <img src="Faustina.jpeg" alt="Faustina Papunaa - Safety Manager" class="h-28 w-28 mx-auto mb-4 rounded-full border-2 border-gold">
                             <h4 class="text-xl font-semibold mb-1">Faustina Papunaa</h4>
-                            <p class="text-sm text-gold">Safety Manager</p>
+                            <p class="text-sm text-gold font-bold">Safety Manager</p>
                             <p class="text-white/70 text-xs mt-2 italic">Implementing safety standards for an accident-free environment.</p>
                         </div>
                     </div>
@@ -257,187 +300,39 @@
 
         <!-- Services Section -->
         <section id="services-section" class="content-section py-20 md:py-28 bg-deep-blue">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">Our <span class="text-gold">Services</span></h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Security <span class="text-gold">Services</span></h2>
+                <p class="text-gold/80 mb-12 uppercase tracking-widest text-sm font-bold">Professional Security Solutions in Ghana</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 text-left">
                     <div class="card p-8 rounded-lg text-center shadow-lg">
-                        <img src="Personal.PNG" alt="Manned Guarding" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Manned Guarding</h3>
-                        <p class="text-white/80">Professional security personnel for on-site protection, patrols, and access control.</p>
+                        <img src="Personal.PNG" alt="Manned Guarding Services Icon" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-xl font-semibold text-white mb-2">Manned Guarding</h3>
+                        <p class="text-white/80 text-sm">Professional and highly trained security personnel for on-site protection, access control, and rapid response.</p>
                     </div>
                     <div class="card p-8 rounded-lg text-center shadow-lg">
-                        <img src="Surveillance.PNG" alt="CCTV Systems" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">CCTV Systems</h3>
-                        <p class="text-white/80">State-of-the-art surveillance systems for 24/7 monitoring and remote access.</p>
+                        <img src="Surveillance.PNG" alt="CCTV Monitoring Services Icon" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-xl font-semibold text-white mb-2">CCTV Systems Monitoring</h3>
+                        <p class="text-white/80 text-sm">Off-site 24/7 proactive surveillance of your premises using advanced video analytics and remote monitoring centers.</p>
                     </div>
                     <div class="card p-8 rounded-lg text-center shadow-lg">
-                        <img src="Corporate.PNG" alt="Alarm Monitoring" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Alarm Monitoring</h3>
-                        <p class="text-white/80">Quick response alarm systems for immediate threat detection and notification.</p>
+                        <img src="Corporate.PNG" alt="Alarm Installation Services Icon" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-xl font-semibold text-white mb-2">Alarm Installation & Monitoring</h3>
+                        <p class="text-white/80 text-sm">State-of-the-art intrusion detection systems with immediate tactical intervention upon alarm activation.</p>
                     </div>
                     <div class="card p-8 rounded-lg text-center shadow-lg">
-                        <img src="Installation.PNG" alt="CCTV Camera Installation" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">CCTV Camera Installation</h3>
-                        <p class="text-white/80">Professional installation of high-definition CCTV systems for optimal surveillance.</p>
+                        <img src="Installation.PNG" alt="CCTV Camera Installation Icon" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-xl font-semibold text-white mb-2">CCTV Camera Installation</h3>
+                        <p class="text-white/80 text-sm">Professional setup of high-definition surveillance networks tailored to cover critical blind spots and entry points.</p>
                     </div>
                     <div class="card p-8 rounded-lg text-center shadow-lg">
-                        <img src="Risk.PNG" alt="Risk Assessment" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Risk Assessment</h3>
-                        <p class="text-white/80">Comprehensive security analysis to identify vulnerabilities and mitigate potential threats.</p>
+                        <img src="Risk.PNG" alt="Risk Assessment Security Icon" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-xl font-semibold text-white mb-2">Risk Assessment</h3>
+                        <p class="text-white/80 text-sm">Comprehensive security audits and vulnerability mapping to identify and mitigate potential threats before they manifest.</p>
                     </div>
                     <div class="card p-8 rounded-lg text-center shadow-lg border-2 border-gold">
-                        <img src="Fence.PNG" alt="Electric Fencing" class="h-16 w-16 mx-auto mb-4 rounded-full">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Electric Fencing</h3>
-                        <p class="text-white/80">High-tension perimeter security systems with automated triggers and alarm integration.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery-section" class="content-section py-20 md:py-28 bg-accent-blue">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">Operations <span class="text-gold">Gallery</span></h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Guard+Patrol" alt="Security Patrol" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Night Patrols</h4>
-                            <p class="text-white text-xs">Vigilant monitoring in any condition.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=CCTV+Hub" alt="Control Center" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">24/7 Control Center</h4>
-                            <p class="text-white text-xs">Advanced monitoring technologies.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Fence+Install" alt="Fence Installation" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Electric Fencing</h4>
-                            <p class="text-white text-xs">Professional perimeter security setup.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=VIP+Escort" alt="VIP Escort" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Executive Protection</h4>
-                            <p class="text-white text-xs">Dignitary and VIP escort services.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=K9+Unit" alt="K9 Security" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">K9 Units</h4>
-                            <p class="text-white text-xs">Trained dogs for enhanced detection.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Event+Security" alt="Event Security" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Event Management</h4>
-                            <p class="text-white text-xs">Crowd control and security for events.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Cash+In+Transit" alt="CIT Services" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">CIT Operations</h4>
-                            <p class="text-white text-xs">Secure valuables transportation.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Team+Training" alt="Training" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Personnel Training</h4>
-                            <p class="text-white text-xs">Continuous skill development.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Access+Systems" alt="Access Systems" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Access Systems</h4>
-                            <p class="text-white text-xs">Biometric and keycard integrations.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Industrial+Sec" alt="Industrial" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Industrial Security</h4>
-                            <p class="text-white text-xs">Protection for large scale facilities.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Residential+Sec" alt="Residential" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Residential Patrol</h4>
-                            <p class="text-white text-xs">Ensuring safety for gated communities.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Mobile+Response" alt="Response" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Mobile Response</h4>
-                            <p class="text-white text-xs">Rapid deployment units.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Consulting" alt="Consulting" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Risk Consulting</h4>
-                            <p class="text-white text-xs">Strategic security planning.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Undercover" alt="Undercover" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Undercover Ops</h4>
-                            <p class="text-white text-xs">Discreet investigative services.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Retail+Loss" alt="Retail" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Loss Prevention</h4>
-                            <p class="text-white text-xs">Retail security and inventory protection.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Maritime+Sec" alt="Maritime" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Maritime Security</h4>
-                            <p class="text-white text-xs">Port and offshore protection.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Aviation+Sec" alt="Aviation" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Aviation Security</h4>
-                            <p class="text-white text-xs">Airport and cargo safety.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Logistics" alt="Logistics" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Logistics Escort</h4>
-                            <p class="text-white text-xs">Supply chain security management.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Asset+Tracking" alt="Tracking" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Asset Tracking</h4>
-                            <p class="text-white text-xs">Real-time monitoring of valuables.</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item group">
-                        <img src="https://placehold.co/600x600/001f3f/FFD700?text=Emergency" alt="Emergency" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay">
-                            <h4 class="text-gold font-bold">Emergency Response</h4>
-                            <p class="text-white text-xs">Immediate tactical intervention.</p>
-                        </div>
+                        <img src="Fence.PNG" alt="Electric Fencing Security Icon" class="h-16 w-16 mx-auto mb-4 rounded-full">
+                        <h3 class="text-xl font-semibold text-white mb-2">Electric Fencing</h3>
+                        <p class="text-white/80 text-sm">Installation and maintenance of high-tension perimeter security systems with automated alarm integration.</p>
                     </div>
                 </div>
             </div>
@@ -446,120 +341,92 @@
         <!-- Contact Section -->
         <section id="contact-section" class="content-section py-20 md:py-28 bg-deep-blue">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Get in <span class="text-gold">Touch</span></h2>
-                <p class="text-xl text-white/80 mb-8 max-w-xl mx-auto">
-                    Secure your future today. Contact us for a free consultation.
-                </p>
-                <div class="max-w-xl mx-auto mb-8 text-white space-y-4 bg-accent-blue p-8 rounded-xl shadow-xl border border-gold/20">
-                    <h3 class="text-2xl font-semibold text-gold">Official Contacts</h3>
-                    <p class="text-lg">Email: <a href="mailto:info@dkbanchorsecurity.com" class="text-white hover:text-gold transition-colors underline">info@dkbanchorsecurity.com</a></p>
-                    <p class="text-lg">Phone: <a href="tel:+233557150062" class="text-white hover:text-gold transition-colors underline">+233 55 715 0062</a></p>
-                    <p class="text-lg">Phone: <a href="tel:+233207816778" class="text-white hover:text-gold transition-colors underline">+233 20 781 6778</a></p>
-                    
-                    <div class="mt-8 pt-4 border-t border-gold/30">
-                        <h3 class="text-xl font-semibold text-gold mb-4 uppercase tracking-widest">Emergency Numbers</h3>
-                        <div class="flex flex-col space-y-3 items-center">
-                            <div class="flex items-center space-x-2 bg-deep-blue px-4 py-2 rounded-lg w-full justify-center border border-white/10">
-                                <span>👮</span><p class="font-semibold text-white">Ghana Police:</p>
-                                <a href="tel:191" class="text-gold hover:underline font-bold">191</a>
-                            </div>
-                            <div class="flex items-center space-x-2 bg-deep-blue px-4 py-2 rounded-lg w-full justify-center border border-white/10">
-                                <span>🚒</span><p class="font-semibold text-white">Fire Service:</p>
-                                <a href="tel:192" class="text-gold hover:underline font-bold">192</a>
-                            </div>
-                            <div class="flex items-center space-x-2 bg-deep-blue px-4 py-2 rounded-lg w-full justify-center border border-white/10">
-                                <span>🚑</span><p class="font-semibold text-white">Ambulance:</p>
-                                <a href="tel:112" class="text-gold hover:underline font-bold">112</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-12">Contact Our <span class="text-gold">Security Team</span></h2>
                 <div class="max-w-xl mx-auto">
                     <div id="message-box" class="message-box bg-red-600 text-white rounded-lg p-4 shadow-lg"></div>
-                    <form id="contact-form" class="space-y-6">
-                        <input type="text" id="name" placeholder="Your Name" class="w-full bg-white text-gray-900 placeholder-gray-500 rounded-lg p-4 border-2 border-transparent focus:border-gold outline-none transition-all">
-                        <input type="email" id="email" placeholder="Your Email" class="w-full bg-white text-gray-900 placeholder-gray-500 rounded-lg p-4 border-2 border-transparent focus:border-gold outline-none transition-all">
-                        <textarea id="message" rows="4" placeholder="Your Message" class="w-full bg-white text-gray-900 placeholder-gray-500 rounded-lg p-4 border-2 border-transparent focus:border-gold outline-none transition-all"></textarea>
-                        <button type="button" id="send-email-btn" class="w-full bg-gold text-deep-blue py-4 rounded-full font-bold text-lg transition-all duration-300 hover:brightness-110 hover:scale-105 shadow-xl">
-                            Send Message
+                    <form id="contact-form" action="https://formspree.io/f/mwvpbgqk" method="POST" class="space-y-6 text-left">
+                        <div class="space-y-2">
+                            <label for="name" class="text-white font-semibold">Your Name</label>
+                            <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full bg-white text-gray-900 rounded-lg p-4 border-2 border-transparent focus:border-gold outline-none">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="email" class="text-white font-semibold">Your Email Address</label>
+                            <input type="email" name="email" id="email" placeholder="john@example.com" required class="w-full bg-white text-gray-900 rounded-lg p-4 border-2 border-transparent focus:border-gold outline-none">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="message" class="text-white font-semibold">Inquiry Message</label>
+                            <textarea name="message" id="message" rows="4" placeholder="How can we assist you with your security needs?" required class="w-full bg-white text-gray-900 rounded-lg p-4 border-2 border-transparent focus:border-gold outline-none"></textarea>
+                        </div>
+                        <button type="submit" id="send-email-btn" class="w-full bg-gold text-deep-blue py-4 rounded-full font-bold text-lg hover:brightness-110 shadow-xl transition-all">
+                            Submit Security Inquiry
                         </button>
                     </form>
-                    <div class="mt-6 flex flex-col items-center">
-                        <span class="text-white/50 text-sm mb-4">OR</span>
-                        <a href="https://wa.me/233557150062" class="w-full bg-green-600 text-white py-4 rounded-full font-bold text-lg text-center hover:bg-green-500 transition-all shadow-xl">
-                            WhatsApp Chat
-                        </a>
-                    </div>
                 </div>
             </div>
         </section>
     </main>
-   
+
     <!-- Professional Footer -->
-    <footer class="bg-deep-blue border-t border-gold/20 pt-16 pb-8 mt-auto">
+    <footer class="bg-deep-blue border-t border-gold/20 pt-16 pb-8">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <!-- Branding -->
-                <div class="space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <img src="https://placehold.co/50x50/001f3f/FFD700?text=Logo" alt="Logo" class="h-12 w-12">
+                <div class="space-y-6 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start space-x-3">
+                        <img src="https://placehold.co/100x100/001f3f/FFD700?text=Logo" alt="DKB Anchor Security Logo" class="h-12 w-auto">
                         <span class="text-2xl font-bold text-white">DKB Anchor <span class="text-gold">Security</span></span>
                     </div>
                     <p class="text-white/60 text-sm leading-relaxed">
-                        Leading the security industry with cutting-edge technology and human vigilance. We anchor your safety through our core values.
+                        Leading the security industry in Ghana with cutting-edge technology and human vigilance. We anchor your safety through our core values.
                     </p>
-                    <div class="flex space-x-4">
-                        <div class="social-btn cursor-pointer">FB</div>
-                        <div class="social-btn cursor-pointer">LN</div>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                        <a href="https://facebook.com/dkbanchor" target="_blank" rel="noopener noreferrer" class="social-btn">Facebook</a>
+                        <a href="https://instagram.com/dkbanchor" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
+                        <a href="https://linkedin.com/company/dkbanchor" target="_blank" rel="noopener noreferrer" class="social-btn">LinkedIn</a>
+                        <a href="https://tiktok.com/@dkbanchor" target="_blank" rel="noopener noreferrer" class="social-btn">TikTok</a>
                     </div>
                 </div>
 
                 <!-- Navigation -->
-                <div>
+                <div class="text-center md:text-left">
                     <h4 class="text-white font-bold text-lg mb-8 uppercase tracking-widest border-l-4 border-gold pl-3">Navigation</h4>
                     <ul class="space-y-4 text-white/70 text-sm">
                         <li><a href="#" class="hover:text-gold transition-colors block" onclick="showSection('hero-section')">Home</a></li>
                         <li><a href="#" class="hover:text-gold transition-colors block" onclick="showSection('about-section')">About Our Firm</a></li>
                         <li><a href="#" class="hover:text-gold transition-colors block" onclick="showSection('services-section')">Security Services</a></li>
-                        <li><a href="#" class="hover:text-gold transition-colors block" onclick="showSection('gallery-section')">Operations Gallery</a></li>
                         <li><a href="#" class="hover:text-gold transition-colors block" onclick="showSection('contact-section')">Request Quote</a></li>
                     </ul>
                 </div>
 
                 <!-- Contact -->
-                <div>
+                <div class="text-center md:text-left">
                     <h4 class="text-white font-bold text-lg mb-8 uppercase tracking-widest border-l-4 border-gold pl-3">Contact</h4>
                     <ul class="space-y-5 text-white/70 text-sm">
-                        <li class="flex items-start space-x-3">
+                        <li class="flex items-start justify-center md:justify-start space-x-3">
                             <span class="text-gold mt-1">📧</span>
                             <a href="mailto:info@dkbanchorsecurity.com" class="hover:text-gold transition-colors">info@dkbanchorsecurity.com</a>
                         </li>
-                        <li class="flex items-start space-x-3">
+                        <li class="flex items-start justify-center md:justify-start space-x-3">
                             <span class="text-gold mt-1">📞</span>
                             <div class="space-y-1">
                                 <a href="tel:+233557150062" class="hover:text-gold transition-colors block">+233 55 715 0062</a>
                                 <a href="tel:+233207816778" class="hover:text-gold transition-colors block">+233 20 781 6778</a>
                             </div>
                         </li>
-                        <li class="flex items-center space-x-3">
+                        <li class="flex items-center justify-center md:justify-start space-x-3">
                             <span class="text-green-500 font-bold">●</span>
-                            <a href="https://wa.me/233557150062" class="text-green-500 hover:underline">WhatsApp Active Now</a>
+                            <a href="https://wa.me/233557150062" class="text-green-500 hover:underline">WhatsApp Support</a>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Address -->
-                <div>
+                <div class="text-center md:text-left">
                     <h4 class="text-white font-bold text-lg mb-8 uppercase tracking-widest border-l-4 border-gold pl-3">Location</h4>
                     <ul class="space-y-4 text-white/70 text-sm">
-                        <li class="flex items-start space-x-3 leading-relaxed">
+                        <li class="flex items-start justify-center md:justify-start space-x-3 leading-relaxed">
                             <span class="text-gold">📍</span>
                             <span>Main Office, Security Plaza,<br>Accra, Ghana</span>
-                        </li>
-                        <li class="pt-4">
-                            <p class="text-[10px] text-white/40 uppercase font-bold tracking-widest italic">
-                                Integrity • Excellence • Reliability
-                            </p>
                         </li>
                     </ul>
                 </div>
@@ -574,6 +441,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- Tawk.to Script Integration -->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/6958673925462c197df854f5/1je0l6eii';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
 
     <script>
         const menuButton = document.getElementById('menu-button');
@@ -602,8 +482,7 @@
             if (!mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
             }
-            // Always scroll to top when switching sections
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'instant' });
         }
 
         navLinks.forEach(link => {
@@ -639,29 +518,44 @@
             }, 3000);
         }
 
-        document.getElementById('send-email-btn').addEventListener('click', () => {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('send-email-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
 
-            if (!name || !email || !message) {
-                displayMessage('Please complete all form fields.');
-                return;
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    displayMessage('Thank you! Your inquiry has been submitted.', 'success');
+                    form.reset();
+                } else {
+                    const data = await response.json();
+                    if (data.errors) {
+                        displayMessage(data.errors.map(error => error.message).join(", "), 'error');
+                    } else {
+                        displayMessage('Oops! There was a problem submitting your form.', 'error');
+                    }
+                }
+            } catch (error) {
+                displayMessage('Oops! Connection error. Please try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
             }
-
-            const subject = encodeURIComponent('Security Inquiry - DKB Anchor');
-            const body = encodeURIComponent(`Client Name: ${name}\nClient Email: ${email}\n\nMessage:\n${message}`);
-
-            window.location.href = `mailto:info@dkbanchorsecurity.com?subject=${subject}&body=${body}`;
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
